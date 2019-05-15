@@ -530,7 +530,7 @@ h5.w3l-subtitle {
     color: #03c5e2;
 }
 .features-left.agileinfo-img,.features-left.agileinfo-img2,.features-left.agileinfo-img3,.features-left.agileinfo-img4{
-    background: url(/dist/web_img/img2.jpg)no-repeat center 0px;
+    background: url(/dist/web_img/p1.jpg)no-repeat center 0px;
     background-size: cover;
     min-height: 33em;
     padding: 0;
@@ -541,7 +541,7 @@ h5.w3l-subtitle {
 	animation: fadeInRight .5s ease;
 }
 .features-left.agileinfo-img2{
-	background: url(/dist/web_img/img1.jpg)no-repeat center 0px;
+	background: url(/dist/web_img/p2.jpg)no-repeat center 0px;
 	background-size: cover;
 	-moz-animation: fadeInRight .5s ease;
 	-webkit-animation: fadeInRight .5s ease;
@@ -550,7 +550,7 @@ h5.w3l-subtitle {
 	animation: fadeInRight .5s ease;
 }
 .features-left.agileinfo-img3{
-	background: url(/dist/web_img/img3.jpg)no-repeat center 0px;
+	background: url(/dist/web_img/p3.jpg)no-repeat center 0px;
 	background-size: cover;
 	-moz-animation: fadeInRight .5s ease;
 	-webkit-animation: fadeInRight .5s ease;
@@ -559,7 +559,7 @@ h5.w3l-subtitle {
 	animation: fadeInRight .5s ease;
 }
 .features-left.agileinfo-img4{
-	background: url(/dist/web_img/img4.jpg)no-repeat center 0px;
+	background: url(/dist/web_img/p4.jpg)no-repeat center 0px;
 	background-size: cover;
 	-moz-animation: fadeInRight .5s ease;
 	-webkit-animation: fadeInRight .5s ease;
