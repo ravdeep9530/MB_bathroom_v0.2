@@ -129,9 +129,10 @@ module.exports.insertForms = function (req, res) {
 }
 module.exports.nonSSO_insertForm = function (req, res) {
     var today = new Date();
+    //console.log(JSON.stringify(req.body))
     var fid = req.params.fid;
     var nextPage_id=req.params.nextPage_id;
-      //console.log(JSON.stringify(req.body))
+      
     connection.query("EXEC S_insertnonSSOForm "+fid+",'"+JSON.stringify(req.body)+"'", function (error, results, fields) {
         if (error) {
 

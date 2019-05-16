@@ -110,7 +110,7 @@ if(!err) {
         user: 'sa',
         password: 'indian@12',
         server: '109.94.110.164',
-        database: 'hotel_migration'
+        database: 'mbbathroom'
     };
     sql.connect(config, function (err) {
 

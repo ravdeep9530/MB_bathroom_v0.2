@@ -573,6 +573,7 @@ module.exports.getStatupMethodLoader = function (req, res) {
                         data: error
                     });
                 }
+                //console.log(results['recordset'])
                 res.json({
                     status: 'true',
                     data: results['recordset']

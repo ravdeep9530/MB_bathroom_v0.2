@@ -1,10 +1,6 @@
 var app = angular.module('susApp', []);
 app.controller('loanCycleCtr', function ($scope, $http) {
-    $http.get("/getLoanCycle").then(function (response) {
-        $scope.myData = response.data.data;
-
-        $scope.timw = {type: $scope.myData[0].cycle};
-    });
+    
     var IData = {};
     var ldData = {};
     var frData = {};
@@ -16,53 +12,53 @@ app.controller('loanCycleCtr', function ($scope, $http) {
     $scope.colors = ['', '', '#ff8989'];
 
 
-    $scope.search = function (id) {
+    // $scope.search = function (id) {
 
-        id = $('#acc').val();
-        if ($('#acc').val() == '') {
-            alert("Please fill the Valid Mobile Number and Booking ID!!!");
-            return;
-        }
-        showLoad();
-        $http.get("/getSearchBymob_bid/" + id).then(function (response) {
-            $scope.searchData = response.data;
-            hideLoad();
+    //     id = $('#acc').val();
+    //     if ($('#acc').val() == '') {
+    //         alert("Please fill the Valid Mobile Number and Booking ID!!!");
+    //         return;
+    //     }
+    //     showLoad();
+    //     $http.get("/getSearchBymob_bid/" + id).then(function (response) {
+    //         $scope.searchData = response.data;
+    //         hideLoad();
 
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
+    //     }, function (response) {
+    //         //Second function handles error
+    //         alert('Something went wrong');
+    //         $scope.content = "Something went wrong";
+    //     });
+    // }
 
-    $scope.getHotelsList = function () {
+//     $scope.getHotelsList = function () {
 
-        $http.get("/getHotelsList/").then(function (response) {
-            $scope.hData = response.data;
+//         $http.get("/getHotelsList/").then(function (response) {
+//             $scope.hData = response.data;
 
-            alert("");
-            hideLoad();
-            $scope.hData=hData;
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-    $scope.getTodayActivity = function () {
-showLoad();
-        $http.get("/getTodayActivity/").then(function (response) {
-            $scope.TaData = response.data;
+//             alert("");
+//             hideLoad();
+//             $scope.hData=hData;
+//         }, function (response) {
+//             //Second function handles error
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
+//     $scope.getTodayActivity = function () {
+// showLoad();
+//         $http.get("/getTodayActivity/").then(function (response) {
+//             $scope.TaData = response.data;
 
-            //alert("");
-            hideLoad();
-            $scope.TaData=TaData;
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
+//             //alert("");
+//             hideLoad();
+//             $scope.TaData=TaData;
+//         }, function (response) {
+//             //Second function handles error
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
     $scope.getGridviewHeaderById = function (id) {
 
         showLoad();
@@ -97,30 +93,30 @@ showLoad();
     }
     var cCount = 0;
     var globalStudentUpdateFormAction = '';
-    $scope.getStudentDetailById = function (id) {
-//alert(id);
-        showLoad();
-        if (cCount == 0) {
-            globalStudentUpdateFormAction = $('#student_formBySId').attr('action') + "";
-            cCount++;
-        }
+//     $scope.getStudentDetailById = function (id) {
+// //alert(id);
+//         showLoad();
+//         if (cCount == 0) {
+//             globalStudentUpdateFormAction = $('#student_formBySId').attr('action') + "";
+//             cCount++;
+//         }
 
-        $('#student_formBySId').attr('action', globalStudentUpdateFormAction);
+//         $('#student_formBySId').attr('action', globalStudentUpdateFormAction);
 
-        $http.get("/getStudentDetailById/" + id).then(function (response) {
-            $scope.fdData = response.data;
-            hideLoad();
-            $('#student_formBySId').attr('action', ($('#student_formBySId').attr('action') + "&" + id) + "");
-        }, function (response) {
-            //Second function handles error
-            hideLoad();
+//         $http.get("/getStudentDetailById/" + id).then(function (response) {
+//             $scope.fdData = response.data;
+//             hideLoad();
+//             $('#student_formBySId').attr('action', ($('#student_formBySId').attr('action') + "&" + id) + "");
+//         }, function (response) {
+//             //Second function handles error
+//             hideLoad();
 
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
 
 
-    }
+//     }
     $scope.getGridviewById = function (id) {
 
         showLoad();
@@ -134,289 +130,289 @@ showLoad();
             $scope.content = "Something went wrong";
         });
     }
-    $scope.getRoomCategory = function (h_id) {
+//     $scope.getRoomCategory = function (h_id) {
 
-        showLoad();
-        $http.get("/getRoomCategory/" + h_id).then(function (response) {
-            $scope.rData = response.data;
-            hideLoad();
-//alert(JSON.stringify(response.data));
+//         showLoad();
+//         $http.get("/getRoomCategory/" + h_id).then(function (response) {
+//             $scope.rData = response.data;
+//             hideLoad();
+// //alert(JSON.stringify(response.data));
 
-        }, function (response) {
-            //Second function handles error
-            hideLoad();
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-    $scope.getIsolateReport = function (hid) {
+//         }, function (response) {
+//             //Second function handles error
+//             hideLoad();
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
+//     $scope.getIsolateReport = function (hid) {
 
-        showLoad();
-        $http.get("/getIsolateReport/"+hid).then(function (response) {
-            $scope.rData = response.data;
-            hideLoad();
-//alert(JSON.stringify(response.data.data[0]));
+//         showLoad();
+//         $http.get("/getIsolateReport/"+hid).then(function (response) {
+//             $scope.rData = response.data;
+//             hideLoad();
+// //alert(JSON.stringify(response.data.data[0]));
 
-        }, function (response) {
-            //Second function handles error
-            hideLoad();
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-    var category = -1;
-    $scope.getRoomsByCategoryID = function (q) {
-        // var q=4;
-        if (q != -1)
-            category = q;
-        showLoad();
-        var d_date = $('#datetimepickerFromText').val();
+//         }, function (response) {
+//             //Second function handles error
+//             hideLoad();
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
+//     var category = -1;
+//     $scope.getRoomsByCategoryID = function (q) {
+//         // var q=4;
+//         if (q != -1)
+//             category = q;
+//         showLoad();
+//         var d_date = $('#datetimepickerFromText').val();
 
-        $http.get("/getRoomsByCategoryID/" + category + "&" + d_date).then(function (response) {
+//         $http.get("/getRoomsByCategoryID/" + category + "&" + d_date).then(function (response) {
 
-            $scope.tData = response.data;
+//             $scope.tData = response.data;
 
-            hideLoad();
-            $scope.getToltipForRooms();
+//             hideLoad();
+//             $scope.getToltipForRooms();
 
-        }, function (response) {
-            //Second function handles error
-            hideLoad();
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-
-
-    $scope.getRoomDetailByRoomID = function (id) {
-
-        $http.get("/getRoomDetailByRoomID/" + id).then(function (response) {
-            $scope.fdData = response.data;
-
-            //alert(JSON.stringify(response.data.data[1]));
-            dateDisable = [];
-            var t = 0;
-            //  var dateDisable = [];
-            for (var i = 0; i < response.data.data[1].length; i++) {
-
-                dateDisable.push(response.data.data[1][i].disabled_dates.replace(/\b0/g, '').substring(0,response.data.data[1][i].disabled_dates.indexOf("T")-1) + '');
-//alert(dateDisable);
-if (i == (response.data.data[1].length) - 1 || (response.data.data[1].length) == 0) {
-                    if (sdate != null) {
-
-                        sdate.datepicker('destroy');
-                        edate.datepicker('destroy');
-                    }
-                    t = 1;
-                    sdate = $('#start_date').datepicker({
-
-                        "format": 'yyyy-mm-dd',
-                        "startDate": today,
-                        beforeShowDay: function (date) {
-                            var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                            if (dateDisable.indexOf(allDates) == -1)
-                                return true;
-                            else
-                                return false;
-                        }
-                    }).on('changeDate', function () {
-                        $(this).datepicker('hide');
-                    }).datepicker("setDate", today);
-                    edate = $('#end_date').datepicker({
-
-                        "format": 'yyyy-mm-dd',
-                        "startDate": today,
-                        beforeShowDay: function (date) {
-                            var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                            if (dateDisable.indexOf(allDates) == -1)
-                                return true;
-                            else
-                                return false;
-                        }
+//         }, function (response) {
+//             //Second function handles error
+//             hideLoad();
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
 
 
-                    }).on('changeDate', function () {
-                        $(this).datepicker('hide');
-                    }).datepicker("setDate", tomorrow);
+//     $scope.getRoomDetailByRoomID = function (id) {
+
+//         $http.get("/getRoomDetailByRoomID/" + id).then(function (response) {
+//             $scope.fdData = response.data;
+
+//             //alert(JSON.stringify(response.data.data[1]));
+//             dateDisable = [];
+//             var t = 0;
+//             //  var dateDisable = [];
+//             for (var i = 0; i < response.data.data[1].length; i++) {
+
+//                 dateDisable.push(response.data.data[1][i].disabled_dates.replace(/\b0/g, '').substring(0,response.data.data[1][i].disabled_dates.indexOf("T")-1) + '');
+// //alert(dateDisable);
+// if (i == (response.data.data[1].length) - 1 || (response.data.data[1].length) == 0) {
+//                     if (sdate != null) {
+
+//                         sdate.datepicker('destroy');
+//                         edate.datepicker('destroy');
+//                     }
+//                     t = 1;
+//                     sdate = $('#start_date').datepicker({
+
+//                         "format": 'yyyy-mm-dd',
+//                         "startDate": today,
+//                         beforeShowDay: function (date) {
+//                             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                             if (dateDisable.indexOf(allDates) == -1)
+//                                 return true;
+//                             else
+//                                 return false;
+//                         }
+//                     }).on('changeDate', function () {
+//                         $(this).datepicker('hide');
+//                     }).datepicker("setDate", today);
+//                     edate = $('#end_date').datepicker({
+
+//                         "format": 'yyyy-mm-dd',
+//                         "startDate": today,
+//                         beforeShowDay: function (date) {
+//                             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                             if (dateDisable.indexOf(allDates) == -1)
+//                                 return true;
+//                             else
+//                                 return false;
+//                         }
 
 
-                }
-            }
-
-            if (t == 0) {
-                if (sdate != null) {
-
-                    sdate.datepicker('remove');
-                    edate.datepicker('remove');
-                }
-
-                sdate = $('#start_date').datepicker({
-
-                    "format": 'yyyy-mm-dd',
-                    "startDate": today,
-                    beforeShowDay: function (date) {
-                        var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                        if (dateDisable.indexOf(allDates) == -1)
-                            return true;
-                        else
-                            return false;
-                    }
-                }).on('changeDate', function () {
-                    $(this).datepicker('hide');
-                }).datepicker("setDate", today);
-                edate = $('#end_date').datepicker({
-
-                    "format": 'yyyy-mm-dd',
-                    "startDate": today,
-                    beforeShowDay: function (date) {
-                        var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                        if (dateDisable.indexOf(allDates) == -1)
-                            return true;
-                        else
-                            return false;
-                    }
+//                     }).on('changeDate', function () {
+//                         $(this).datepicker('hide');
+//                     }).datepicker("setDate", tomorrow);
 
 
-                }).on('changeDate', function () {
-                    $(this).datepicker('hide');
-                }).datepicker("setDate", tomorrow);
+//                 }
+//             }
+
+//             if (t == 0) {
+//                 if (sdate != null) {
+
+//                     sdate.datepicker('remove');
+//                     edate.datepicker('remove');
+//                 }
+
+//                 sdate = $('#start_date').datepicker({
+
+//                     "format": 'yyyy-mm-dd',
+//                     "startDate": today,
+//                     beforeShowDay: function (date) {
+//                         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                         if (dateDisable.indexOf(allDates) == -1)
+//                             return true;
+//                         else
+//                             return false;
+//                     }
+//                 }).on('changeDate', function () {
+//                     $(this).datepicker('hide');
+//                 }).datepicker("setDate", today);
+//                 edate = $('#end_date').datepicker({
+
+//                     "format": 'yyyy-mm-dd',
+//                     "startDate": today,
+//                     beforeShowDay: function (date) {
+//                         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                         if (dateDisable.indexOf(allDates) == -1)
+//                             return true;
+//                         else
+//                             return false;
+//                     }
 
 
-            }
-            // alert(dateDisable);
+//                 }).on('changeDate', function () {
+//                     $(this).datepicker('hide');
+//                 }).datepicker("setDate", tomorrow);
 
 
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-    $scope.getBookindDetailBySummaryID = function (q) {
-
-        showLoad();
+//             }
+//             // alert(dateDisable);
 
 
-        $http.get("/getBookindDetailBySummaryID/" + q).then(function (response) {
+//         }, function (response) {
+//             //Second function handles error
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
+//     $scope.getBookindDetailBySummaryID = function (q) {
 
-            fdData[2] = response.data;
-            $scope.fdData = fdData;
-
-            hideLoad();
-            dateDisable = [];
-            var t = 0;
-            //  var dateDisable = [];
-            for (var i = 0; i < response.data.data[1].length; i++) {//alert(response.data.data[1][i].disabled_dates+"");4
-
-                dateDisable.push(response.data.data[1][i].disabled_dates.replace(/\b0/g, '') + '');
-
-                if (i == (response.data.data[1].length) - 1 || (response.data.data[1].length) == 0) {
-                    if (sdate_edit != null) {
-
-                        sdate_edit.datepicker('remove');
-                        edate_edit.datepicker('remove');
-                    }
-
-t=1;
-                    sdate_edit = $('.start_date_edit').datepicker({
-
-                        "format": 'yyyy-mm-dd',
-                        "startDate": today,
-                        beforeShowDay: function (date) {
-                            var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                            if (dateDisable.indexOf(allDates) == -1)
-                                return true;
-                            else
-                                return false;
-                        }
-                    }).on('changeDate', function () {
-                        $(this).datepicker('hide');
-                    });//.datepicker("setDate", today);
-
-                    edate_edit = $('.end_date_edit').datepicker({
-
-                        "format": 'yyyy-mm-dd',
-                        "startDate": today,
-                        beforeShowDay: function (date) {
-                            var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                            if (dateDisable.indexOf(allDates) == -1)
-                                return true;
-                            else
-                                return false;
-                        }
+//         showLoad();
 
 
-                    }).on('changeDate', function () {
-                        $(this).datepicker('hide');
-                    });//.datepicker("setDate", tomorrow);
+//         $http.get("/getBookindDetailBySummaryID/" + q).then(function (response) {
+
+//             fdData[2] = response.data;
+//             $scope.fdData = fdData;
+
+//             hideLoad();
+//             dateDisable = [];
+//             var t = 0;
+//             //  var dateDisable = [];
+//             for (var i = 0; i < response.data.data[1].length; i++) {//alert(response.data.data[1][i].disabled_dates+"");4
+
+//                 dateDisable.push(response.data.data[1][i].disabled_dates.replace(/\b0/g, '') + '');
+
+//                 if (i == (response.data.data[1].length) - 1 || (response.data.data[1].length) == 0) {
+//                     if (sdate_edit != null) {
+
+//                         sdate_edit.datepicker('remove');
+//                         edate_edit.datepicker('remove');
+//                     }
+
+// t=1;
+//                     sdate_edit = $('.start_date_edit').datepicker({
+
+//                         "format": 'yyyy-mm-dd',
+//                         "startDate": today,
+//                         beforeShowDay: function (date) {
+//                             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                             if (dateDisable.indexOf(allDates) == -1)
+//                                 return true;
+//                             else
+//                                 return false;
+//                         }
+//                     }).on('changeDate', function () {
+//                         $(this).datepicker('hide');
+//                     });//.datepicker("setDate", today);
+
+//                     edate_edit = $('.end_date_edit').datepicker({
+
+//                         "format": 'yyyy-mm-dd',
+//                         "startDate": today,
+//                         beforeShowDay: function (date) {
+//                             var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                             if (dateDisable.indexOf(allDates) == -1)
+//                                 return true;
+//                             else
+//                                 return false;
+//                         }
 
 
-                }
-            }
-
-            if (t == 0) {
-
-                if (sdate_edit != null) {
-
-                    sdate_edit.datepicker('remove');
-                    edate_edit.datepicker('remove');
-                }
-
-                sdate_edit = $('.start_date_edit').datepicker({
-
-                    "format": 'yyyy-mm-dd',
-                    "startDate": today,
-                    beforeShowDay: function (date) {
-                        var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                        if (dateDisable.indexOf(allDates) == -1)
-                            return true;
-                        else
-                            return false;
-                    }
-                }).on('changeDate', function () {
-                    $(this).datepicker('hide');
-                });//.datepicker("setDate", today);
-                edate_edit = $('.end_date_edit').datepicker({
-
-                    "format": 'yyyy-mm-dd',
-                    "startDate": today,
-                    beforeShowDay: function (date) {
-                        var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-                        if (dateDisable.indexOf(allDates) == -1)
-                            return true;
-                        else
-                            return false;
-                    }
+//                     }).on('changeDate', function () {
+//                         $(this).datepicker('hide');
+//                     });//.datepicker("setDate", tomorrow);
 
 
-                }).on('changeDate', function () {
-                    $(this).datepicker('hide');
-                });//.datepicker("setDate", tomorrow);
+//                 }
+//             }
+
+//             if (t == 0) {
+
+//                 if (sdate_edit != null) {
+
+//                     sdate_edit.datepicker('remove');
+//                     edate_edit.datepicker('remove');
+//                 }
+
+//                 sdate_edit = $('.start_date_edit').datepicker({
+
+//                     "format": 'yyyy-mm-dd',
+//                     "startDate": today,
+//                     beforeShowDay: function (date) {
+//                         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                         if (dateDisable.indexOf(allDates) == -1)
+//                             return true;
+//                         else
+//                             return false;
+//                     }
+//                 }).on('changeDate', function () {
+//                     $(this).datepicker('hide');
+//                 });//.datepicker("setDate", today);
+//                 edate_edit = $('.end_date_edit').datepicker({
+
+//                     "format": 'yyyy-mm-dd',
+//                     "startDate": today,
+//                     beforeShowDay: function (date) {
+//                         var allDates = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+//                         if (dateDisable.indexOf(allDates) == -1)
+//                             return true;
+//                         else
+//                             return false;
+//                     }
 
 
-            }
+//                 }).on('changeDate', function () {
+//                     $(this).datepicker('hide');
+//                 });//.datepicker("setDate", tomorrow);
 
-        }, function (response) {
-            //Second function handles error
-            hideLoad();
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
-    }
-    $scope.getLastTenBookingTransactions = function (h_id) {
-      //  alert(h_id);
 
-        $http.get("/getLastTenBookingTransactions/"+h_id).then(function (response) {
-            $scope.room10Data = response.data;
-            //alert(JSON.stringify(response.data));
+//             }
 
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
+//         }, function (response) {
+//             //Second function handles error
+//             hideLoad();
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+//     }
+//     $scope.getLastTenBookingTransactions = function (h_id) {
+//       //  alert(h_id);
 
-    }
+//         $http.get("/getLastTenBookingTransactions/"+h_id).then(function (response) {
+//             $scope.room10Data = response.data;
+//             //alert(JSON.stringify(response.data));
+
+//         }, function (response) {
+//             //Second function handles error
+//             alert('Something went wrong');
+//             $scope.content = "Something went wrong";
+//         });
+
+//     }
 
     $scope.getStatupMethodLoader = function () {
         //alert(id);
@@ -433,37 +429,37 @@ t=1;
         });
 
     }
-    $scope.getToltipForRooms = function () {
-        //alert(id);
+    // $scope.getToltipForRooms = function () {
+    //     //alert(id);
 
-        $http.get("/getToltipForRooms/").then(function (response) {
-       //     $scope.slData = response.data;
-           // alert(JSON.stringify(response.data.data[0]));
-            //$scope.$eval(response.data.data[0][0].method);
-            for (var i=0;i<response.data.data.length;i++)
-            {
+    //     $http.get("/getToltipForRooms/").then(function (response) {
+    //    //     $scope.slData = response.data;
+    //        // alert(JSON.stringify(response.data.data[0]));
+    //         //$scope.$eval(response.data.data[0][0].method);
+    //         for (var i=0;i<response.data.data.length;i++)
+    //         {
 
-                //alert(response.data.data[i].room_id);
-                $('#tol'+response.data.data[i].room_id).append('<table class="table table-bordered tab-danger">\n' +
-                    '                                <thead style="color:white"><th>Room Name</th>\n' +
-                    '                                <th>Start Date</th>\n' +
-                    '                                <th>End Date</th>\n' +
-                    '                                <th>Status</th></thead></table>');
+    //             //alert(response.data.data[i].room_id);
+    //             $('#tol'+response.data.data[i].room_id).append('<table class="table table-bordered tab-danger">\n' +
+    //                 '                                <thead style="color:white"><th>Room Name</th>\n' +
+    //                 '                                <th>Start Date</th>\n' +
+    //                 '                                <th>End Date</th>\n' +
+    //                 '                                <th>Status</th></thead></table>');
 
-                $('#tol'+response.data.data[i].room_id).append('<table class="table"><tr><td style=\'color:white;\'><h3>'+response.data.data[i].room_name+'</h3></td>' +
-                    '<td style=\'color:white;\'><h3>'+response.data.data[i].book_start_date.substring(0,10)+'</h3></td>' +
-                    '<td style=\'color:white;\'><h3>'+response.data.data[i].book_end_date.substring(0,10)+'</h3></td>' +
-                    '<td style=\'color:white;\'><h3>'+response.data.data[i].description+'</h3></td></tr></table>');//, html: true});//.attr('title','<h3>'+response.data.data[0][i].customer_name+' | '+response.data.data[0][i].room_name+'</h3>');
-            }
+    //             $('#tol'+response.data.data[i].room_id).append('<table class="table"><tr><td style=\'color:white;\'><h3>'+response.data.data[i].room_name+'</h3></td>' +
+    //                 '<td style=\'color:white;\'><h3>'+response.data.data[i].book_start_date.substring(0,10)+'</h3></td>' +
+    //                 '<td style=\'color:white;\'><h3>'+response.data.data[i].book_end_date.substring(0,10)+'</h3></td>' +
+    //                 '<td style=\'color:white;\'><h3>'+response.data.data[i].description+'</h3></td></tr></table>');//, html: true});//.attr('title','<h3>'+response.data.data[0][i].customer_name+' | '+response.data.data[0][i].room_name+'</h3>');
+    //         }
 
 
-        }, function (response) {
-            //Second function handles error
-            alert('Something went wrong');
-            $scope.content = "Something went wrong";
-        });
+    //     }, function (response) {
+    //         //Second function handles error
+    //         alert('Something went wrong');
+    //         $scope.content = "Something went wrong";
+    //     });
 
-    }
+    // }
 
 
     $scope.getForms = function (id) {
@@ -500,24 +496,24 @@ t=1;
         });
     }
 
-    $scope.populate_StudentListByclassId = function (sl) {
+//     $scope.populate_StudentListByclassId = function (sl) {
 
 
-        gdData = sl;
-        $scope.gdData = gdData;
+//         gdData = sl;
+//         $scope.gdData = gdData;
 
-        hideLoad();
+//         hideLoad();
 
 
-        $(document).ready(function () {
-//$('#datatable1').dataTable({"remove":true});
-            $('#datatable1').DataTable({"pageLength": 25});
-        });
-        document.getElementById('managestudent').click()[0];
+//         $(document).ready(function () {
+// //$('#datatable1').dataTable({"remove":true});
+//             $('#datatable1').DataTable({"pageLength": 25});
+//         });
+//         document.getElementById('managestudent').click()[0];
 
-        //  alert(JSON.stringify($scope.gd1Data));
+//         //  alert(JSON.stringify($scope.gd1Data));
 
-    }
+//     }
 
 
     $scope.gs = function (e) {

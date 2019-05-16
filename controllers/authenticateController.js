@@ -3,8 +3,8 @@
     module.exports.authenticate=function(req,res){
         var email=req.body.email;
         var password=req.body.pass;
-        var h_id=req.body.h_id;
-        connection.query("EXEC C_validate_user '"+email+"',"+h_id+"", function (error, results, fields) {
+        //var h_id=req.body.h_id;
+        connection.query("EXEC C_validate_user '"+email+"'", function (error, results, fields) {
           if (error) {
               res.json({
                 status:error,
