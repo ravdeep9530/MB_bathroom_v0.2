@@ -92,6 +92,8 @@ module.exports.insertForms = function (req, res) {
     var today = new Date();
     var fid = req.params.fid;
     var table_name = req.params.tname;
+    
+    
 
     connection.query("EXEC S_insertForm "+fid+",'"+JSON.stringify(req.body)+"'", function (error, results, fields) {
         if (error) {

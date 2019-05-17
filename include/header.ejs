@@ -37,9 +37,10 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body class="hold-transition skin-blue sidebar-mini" ng-app="susApp" ng-init="rate=0;tam=0;tim=1;h_id=<%=user.hotel_id%>;uid=<%=user.id%>" ng-controller="loanCycleCtr">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="susApp" ng-init="rate=0;tam=0;tim=1;uid=<%=user.id%>" ng-controller="loanCycleCtr">
 <div class="wrapper">
 
+        <form enctype="multipart/form-data" style="display:none;" name="fileup" id="fileup" method="POST"  action="/fileupload"></form>
     <header class="main-header">
         <!-- Logo -->
         <a href="#" class="logo">

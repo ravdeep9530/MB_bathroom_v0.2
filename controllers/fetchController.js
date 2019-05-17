@@ -740,9 +740,9 @@ module.exports.getGridviewByClassId = function (req, res) {
         }
     });
 }
-module.exports.getHotelsList = function (req, res) {
+module.exports.getGalleryList = function (req, res) {
 
-    connection.query('EXEC C_getHotelsList', function (error, results, fields) {
+    connection.query('EXEC C_geGalleryList', function (error, results, fields) {
         {
             {
                 res.json({

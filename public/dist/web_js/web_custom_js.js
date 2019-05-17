@@ -1,5 +1,5 @@
 var app = angular.module('susApp', []);
-app.controller('loanCycleCtr', function ($scope, $http) {
+app.controller('MBCtrl', function ($scope, $http) {
     
     var IData = {};
     var ldData = {};
@@ -130,21 +130,23 @@ app.controller('loanCycleCtr', function ($scope, $http) {
             $scope.content = "Something went wrong";
         });
     }
-//     $scope.getRoomCategory = function (h_id) {
+    
+    $scope.getGalleryList = function () {
+        
+        alert('dd')
+        $http.get("/getGalleryList").then(function (response) {
+            $scope.gData = response.data;
+            hideLoad();
+alert(JSON.stringify($scope.gData));
 
-//         showLoad();
-//         $http.get("/getRoomCategory/" + h_id).then(function (response) {
-//             $scope.rData = response.data;
-//             hideLoad();
-// //alert(JSON.stringify(response.data));
-
-//         }, function (response) {
-//             //Second function handles error
-//             hideLoad();
-//             alert('Something went wrong');
-//             $scope.content = "Something went wrong";
-//         });
-//     }
+        }, function (response) {
+            //Second function handles error
+            hideLoad();
+            alert('Something went wrong');
+            $scope.content = "Something went wrong";
+        });
+    }
+    $scope.getGalleryList();
 //     $scope.getIsolateReport = function (hid) {
 
 //         showLoad();
@@ -971,8 +973,10 @@ function hideLoad() {
 
 
 //////////////////////////end Loadings/////////////
-$(document).ready(function () {
 
+
+$(document).ready(function () {
+    
 
 });
 ///////////////////////////Datatable/////////

@@ -82,7 +82,7 @@ app.get('/temp', function(req, res) {
         title: 'MUSIC'
     });
 });
-app.get('/getHotelsList',fetchController.getHotelsList);
+app.get('/getGalleryList',fetchController.getGalleryList);
 app.get('/getNextPage/:page_id/?*',fetchController.getNextPage);
 app.get('/getIsolateReport/:h_id',fetchController.getIsolateReport);
 app.get('/resetPassword/:hash',fetchController.resetPassword);
@@ -157,7 +157,7 @@ router.get('/getFormsByID/:id',fetchController.getFormsByID);
 //router.get('/getBookindDetailBySummaryID/:s_id',fetchController.getBookindDetailBySummaryID);
 router.get('/getL_fieldByname/:fname',fetchController.getL_fieldByname);
 router.get('/getSetting',fetchController.getSetting);
-//router.get('/getRoomCategory/:h_id',fetchController.getRoomCategory);
+router.get('/ssoGetGalleryList',fetchController.getGalleryList);
 //router.get('/getReports/:id&:f_date&:t_date&:h_id',fetchController.getReports);
 //router.get('/getRoomsByCategoryID/:c_id&:d_date',fetchController.getRoomsByCategoryID);
 //router.get('/getRoomDetailByRoomID/:r_id',fetchController.getRoomDetailByRoomID);
@@ -186,7 +186,7 @@ var dpCookie=req.cookies.dp;
 
                     res.cookie('dp','uploads/'+rand+'.'+ files.filetoupload.name.split('.')[1],{maxAge:900000,httpOnly:true});
 
-        res.redirect('/upload');
+        res.redirect('/dashboard');
       });
  });
 

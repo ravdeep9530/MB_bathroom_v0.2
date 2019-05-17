@@ -47,31 +47,148 @@
                                 <!-- Horizontal Form -->
                                 <div class="box box-info " ng-init="getRoomCategory(h_id)">
                                     <div class="box-header with-border">
-                                        <h3 class="box-title">Rooms Category </h3>
+                                        <h3 class="box-title">Add images in Gallery </h3>
 
                                     </div>
                                     <div class="col-lg-12  box-body  ">
 
                                         <div class="row">
-                                            <div class="col-lg-3 col-xs-6" data-toggle="modal" data-target="#roomModal"
-                                                 ng-repeat="r in rData.data"
-                                                 ng-click="getRoomsByCategoryID(r.category_id)"
-                                                 style="cursor: pointer;">
-                                                <!-- small box -->
-                                                <div ng-class="r.css_class">
-                                                    <div class="inner">
-                                                        <h3>{{r.booked_count}}/{{r.free_count}}</h3>
+                                                <form  class="form-horizontal" data-ng-init="getForms(1)" id="room_booking_form"
+                                                action="{{frData[1].data[0][0].action+'/'+frData[1].data[0][0].form_id+'&'+frData[1].data[0][0].form_table_name}}"
+                                                method="post">
+                                              <div class="box-body ">
+                      
+                      
+                                                  <div class="form-horizontal ">
+                                                      <div class="panel panel-success">
+                      
+                      
+                                                          <div class="panel-body">
+                                                              <!--  <center>
+                      
+                                                                    <div class="col-lg-3 col-lg-offset-2">
+                                                                        <img src="{{pData.data[0].photo_url}}"
+                                                                             class="img-thumbnail img-responsive">
+                                                                    </div>
+                                                                </center>-->
+                                                              <div class="form-group col-lg-4"
+                                                                   ng-repeat="f in frData[1].data[1]">
+                                                                  <label for="inputEmail3"
+                                                                         ng-if="f.isHidden==0 || f.caption_name!=''"
+                                                                         class="col-sm-3 control-label">{{f.caption_name}}</label>
+                      
+                                                                  <div class="col-sm-10">
+                                                                            <label ng-if="f.type_name=='file'" class="btn btn-default btn-sm center-block btn-file">
+  <i class="fa fa-upload fa-2x" aria-hidden="true"></i>
+  <input ng-if="f.type_name=='file'" form="fileup"  ng-hide="f.isHidden"  style="display: none;"
+                                                                            type="{{f.type_name}}"
+                                                                            maxlength="{{f.field_max_length}}"
+                                                                            minlength="{{f.field_min_length}}"
+                                                                            ng-required="{{f.required_id}}"
+                                                                            ng-readonly="{{f.field_readonly}}"
+                                                                            ng-class="f.field_class"
+                                                                            class="form-control col-lg-2"
+                                                                            name="filetoupload"
+                                                                            id="filetoupload" ng-value="{{f.field_value}}"
+                                                                            placeholder="{{f.field_placeholder}}">
+                                                                            <input ng-if="f.type_name=='file'"   ng-hide="1"
+                                                                            type="text"
+                                                                            maxlength="{{f.field_max_length}}"
+                                                                            minlength="{{f.field_min_length}}"
+                                                                           
+                                                                            ng-required="{{f.required_id}}"
+                                                                            ng-readonly="1"
+                                                                            ng-class="f.field_class"
+                                                                            class="form-control col-lg-2"
+                                                                            name="{{f.field_name}}"
+                                                                            id="{{f.field_id}}" value="<%=dp%>"
+                                                                            ><span><%=dp%></span>
 
-                                                        <p><span class="badge badge-primary">Type: <b>{{r.category_name}}</b></span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="icon">
-                                                        <i class="ion ion-home"></i>
-                                                    </div>
-                                                    <a href="#" class="small-box-footer">More info <i
-                                                                class="fa fa-arrow-circle-right"></i></a>
-                                                </div>
-                                            </div>
+                                                                            <button ng-if="f.type_name=='file'" style="float:right;" form="fileup" ng-hide="<%=dp%>" class="btn btn-sm btn-primary"  type="button" onclick="document.getElementById('fileup').submit();">Upload</button>
+                                                                        
+                                                                        </label>
+                      
+                                                                      <input ng-if="f.type_name!='file' && f.type_name!='textarea' && f.type_name!='select' && f.type_name!='button' && f.type_name!='submit' && f.type_name!='reset'"
+                                                                             ng-hide="f.isHidden"
+                                                                             type="{{f.type_name}}"
+                                                                             maxlength="{{f.field_max_length}}"
+                                                                             minlength="{{f.field_min_length}}"
+                                                                             ng-required="{{f.required_id}}"
+                                                                             ng-readonly="{{f.field_readonly}}"
+                                                                             ng-class="f.field_class"
+                                                                             class="form-control col-lg-2"
+                                                                             name="{{f.field_name}}"
+                                                                             id="{{f.field_id}}" ng-value="{{f.field_value}}"
+                                                                             placeholder="{{f.field_placeholder}}">
+                                                                             
+                                                                                    
+                                                                             
+                                                                      <textarea ng-if="f.type_name=='textarea'"
+                                                                                ng-hide="f.isHidden"
+                                                                                maxlength="{{f.field_max_length}}"
+                                                                                minlength="{{f.field_min_length}}"
+                                                                                ng-required="{{f.required_id}}"
+                                                                                ng-readonly="{{f.field_readonly}}"
+                                                                                class="form-control col-lg-2"
+                                                                                name="{{f.field_name}}"
+                      
+                                                                                id="{{f.field_id}}"
+                                                                                ng-value="{{f.field_value}}"
+                                                                                placeholder="{{f.field_placeholder}}"></textarea>
+                                                                      <select ng-if="f.type_name=='select'"
+                                                                              ng-hide="f.isHidden"
+                                                                              data-ng-init="getL_fieldByname(f.l_field_name)"
+                                                                              ng-value="{{f.field_value}}"
+                      
+                      
+                                                                              ng-required="{{f.required_id}}"
+                                                                              ng-readonly="{{f.field_readonly}}"
+                                                                              class="form-control col-lg-2"
+                                                                              name="{{f.field_name}}"
+                                                                              ng-blur="gs(f.field_other_attibute)"
+                      
+                                                                              id="{{f.field_id}}"
+                                                                      >
+                                                                          <option ng-repeat="fo in froData.data"
+                                                                                  ng-value="{{fo.fid}}">{{fo.description}}
+                                                                          </option>
+                      
+                                                                      </select>
+                      
+                                                                      <div ng-if="f.type_name=='button' || f.type_name=='reset' || f.type_name=='submit'">
+                      
+                                                                          <button type="{{f.type_name}}"
+                                                                                  maxlength="{{f.field_max_length}}"
+                                                                                  minlength="{{f.field_max_length}}"
+                                                                                  ng-required="{{f.required_id}}"
+                                                                                  ng-readonly="{{f.field_readonly}}"
+                                                                                  ng-class="f.field_class"
+                                                                                  class="form-control col-lg-2"
+                                                                                  name="{{f.field_name}}"
+                                                                                  id="{{f.field_id}}"
+                      
+                                                                                  ng-value="f.field_value">
+                                                                              {{f.field_value}}
+                      
+                                                                          </button>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                      
+                                                          </div>
+                      
+                      
+                                                          <!-- /.box-header -->
+                                                          <!-- form start -->
+                      
+                      
+                                                          <!-- /.box-body -->
+                      
+                                                      </div>
+                      
+                                                  </div>
+                                              </div>
+                                          </form>
 
 
                                         </div>
@@ -88,72 +205,7 @@
 
 
                                 </div>
-                                <div class="box box-info " ng-init="getRoomCategory(h_id)">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Last 10 Booking Transactions</h3>
-
-                                    </div>
-                                    <div class="col-lg-12 box box-body  " ng-init="getLastTenBookingTransactions(h_id)">
-                                        <div class="table-responsive    ">
-                                            <div class="card-body" ng-if="room10Data.data.length<=0">
-                                                <br/><br/>
-                                                <span class="badge alert">There is no booking.</span>
-
-                                            </div>
-                                            <div class="" ng-if="room10Data.data.length>0">
-
-                                                <table id="datatable1"
-                                                       class="table table-hover table-condensed    table-striped table-bordered ">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Booking ID</th>
-                                                        <th>Room Name</th>
-                                                        <th>Customer Name</th>
-                                                        <th>Customer Mobile</th>
-                                                        <th>Start Date</th>
-                                                        <th>End Date</th>
-                                                        <th>Booking Status</th>
-                                                    </tr>
-
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr ng-repeat="r in room10Data.data"
-                                                        data-target="#roomEditFormModal" data-toggle="modal"
-                                                        ng-click="getBookindDetailBySummaryID(r.summary_id)">
-                                                        <td>{{r.summary_id}}</td>
-                                                        <td>{{r.room_name}}</td>
-                                                        <td>{{r.customer_name}}</td>
-                                                        <td>{{r.customer_mob}}</td>
-                                                        <td>{{r.book_start_date | date : "dd-MM-yyyy"}}</td>
-                                                        <td>{{r.book_end_date | date : "dd-MM-yyyy" }}</td>
-                                                        <td>{{r.description}}</td>
-
-                                                    </tr>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                    <!-- /.box-header -->
-                                    <!-- form start -->
-
-                                    <div class="col-lg-12">
-                                        <br/>
-                                    </div>
-                                    <div class=" box-body">
-
-                                    </div>
-
-                                    <div class="col-lg-12">
-                                        <hr/>
-                                    </div>
-
-
-                                </div>
+                               
 
                             </div>
                             <div class="col-lg-12">
