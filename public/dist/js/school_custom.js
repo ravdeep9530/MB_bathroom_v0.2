@@ -728,10 +728,10 @@ $scope.getStatupMethodLoader();
 
 
 var id = 0;
-$('#student_form').on('submit', function (e) {
+$('#feedback_form').on('submit', function (e) {
 
     e.preventDefault();
-    var fdata = new FormData(document.getElementById('student_form'));
+    var fdata = new FormData(document.getElementById('feedback_form'));
     var object = {};
     fdata.forEach(function (value, key) {
         object[key] = value;
@@ -741,7 +741,7 @@ $('#student_form').on('submit', function (e) {
     showLoad();
     $.ajax({
         type: 'POST',
-        url: $('#student_form').attr('action'),
+        url: $('#feedback_form').attr('action'),
         dataType: "json",
         contentType: "application/json",
         data: json,
@@ -752,7 +752,7 @@ $('#student_form').on('submit', function (e) {
 
 
             hideLoad();
-            document.getElementById('student_form').reset();
+            document.getElementById('feedback_form').reset();
 
         }
     });

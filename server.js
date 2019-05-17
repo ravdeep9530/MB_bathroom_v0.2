@@ -83,6 +83,7 @@ app.get('/temp', function(req, res) {
     });
 });
 app.get('/getGalleryList',fetchController.getGalleryList);
+app.get('/getFeedbackList',fetchController.getFeedbackList);
 app.get('/getNextPage/:page_id/?*',fetchController.getNextPage);
 app.get('/getIsolateReport/:h_id',fetchController.getIsolateReport);
 app.get('/resetPassword/:hash',fetchController.resetPassword);

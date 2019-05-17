@@ -479,6 +479,9 @@ h5.w3l-subtitle {
     padding: 0.68em .8em;
     color: #bc0023;
 }
+.fullwidth{
+	width: 1000px;
+}
 .work-grids-img span{
   position: relative;
   z-index: 100;
@@ -1642,6 +1645,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	[class^='imghvr-'] .agile-figcaption, [class*=' imghvr-'] .agile-figcaption {
 		padding: 4.5em 3em;
 	}
+	.fullwidth{
+		width: 1000px;
+	}
     .navbar-right {
 		float: left !important;
 		margin: 0em 0 0 10em;
@@ -1659,6 +1665,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.w3about-text {
 		width: 65%;
 		right: -43%;
+	}
+	.fullwidth{
+		width: 1000px;
 	}
 	.about, .team, .gallery, .contact, .subscribe {
 		padding: 4em 0;
@@ -1683,6 +1692,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:1280px){
 	[class^='imghvr-'] .agile-figcaption, [class*=' imghvr-'] .agile-figcaption {
 		padding: 3.8em 2em;
+	}
+	.fullwidth{
+		width: 1000px;
 	}
 	.features ul.nav.nav-tabs {
 		right: 11%;
@@ -1713,6 +1725,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:1080px){
 	.header {
 		padding-top: 1.5em;
+	}
+	.fullwidth{
+		width: 1000px;
 	}
 	.nav.navbar-nav.nav-center li a {
 		font-size: 1.1em;
@@ -1812,6 +1827,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:1024px){
 	[class^='imghvr-'] .agile-figcaption, [class*=' imghvr-'] .agile-figcaption {
 		padding: 2.5em 1em;
+	}
+	.fullwidth{
+		width: 1000px;
 	}
 	a.read, a.read2 {
 		font-size: 1em;
@@ -1949,6 +1967,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 		font-size: 0.9em;
 		margin-top: 1em;
 	}
+	.fullwidth{
+		width: 600px;
+	}
 	.features-left.agileinfo-img, .features-left.agileinfo-img2, .features-left.agileinfo-img3, .features-left.agileinfo-img4 {
 		min-height: 23em;
 	}
@@ -1984,6 +2005,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.features-right {
 		padding: 7em 3em 3em;
 	}
+	.fullwidth{
+		width: 600px;
+	}
 	.features ul.nav.nav-tabs {
 		top: 7%;
 		left: 5%;
@@ -2014,6 +2038,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:767px){
 	.header {
 		padding: 1em 1.5em;
+	}
+	.fullwidth{
+		width: 600px;
 	}
 	.navbar-default .navbar-toggle {
 		border-color: #ffffff;
@@ -2099,6 +2126,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.w3about-img {
 		width: 65%;
 	}
+	.fullwidth{
+		width: 600px;
+	}
 	.team-grids {
 		padding: 1em 3em;
 	}
@@ -2145,6 +2175,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.w3ls-effect {
 		height: 235px;
 	}
+	.fullwidth{
+		width: 500px;
+	}
 	.cd-radial-slider-content h2, .cd-radial-slider-content h3 {
 		font-size: 2.2em;
 	}
@@ -2169,6 +2202,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:568px){
 	.cd-radial-slider-content h2, .cd-radial-slider-content h3 {
 		font-size: 2em;
+	}
+	.fullwidth{
+		width: 500px;
 	}
 	.w3about-text {
 		width: 100%;
@@ -2263,6 +2299,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.cd-search input {
 		font-size: 1em;
 	}
+	.fullwidth{
+		width: 350px;
+	}
 	.cd-radial-slider-content h2, .cd-radial-slider-content h3 {
 		font-size: 1.5em;
 		margin-top: 2em;
@@ -2352,6 +2391,10 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 	.about, .team, .gallery, .contact, .subscribe {
 		padding: 2em 0;
 	}
+	.fullwidth{
+		width: 350px;
+	}
+
 	.w3about-text {
 		padding: 1.2em;
 		top: 9%;
@@ -2419,6 +2462,9 @@ button.btn1:hover i.fa.fa-paper-plane-o{
 @media(max-width:375px){
 	.w3about-text {
 		top: 5%;
+	}
+	.fullwidth{
+		width: 350px;
 	}
 	nav.navbar.navbar-default {
 		background: none;

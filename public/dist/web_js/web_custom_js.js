@@ -133,11 +133,11 @@ app.controller('MBCtrl', function ($scope, $http) {
     
     $scope.getGalleryList = function () {
         
-        alert('dd')
+        
         $http.get("/getGalleryList").then(function (response) {
             $scope.gData = response.data;
             hideLoad();
-alert(JSON.stringify($scope.gData));
+//alert(JSON.stringify($scope.gData));
 
         }, function (response) {
             //Second function handles error
@@ -147,6 +147,23 @@ alert(JSON.stringify($scope.gData));
         });
     }
     $scope.getGalleryList();
+
+    $scope.getFeedbackList = function () {
+        
+        
+        $http.get("/getFeedbackList").then(function (response) {
+            $scope.feedData = response.data;
+            hideLoad();
+//alert(JSON.stringify($scope.feedData.data));
+
+        }, function (response) {
+            //Second function handles error
+            hideLoad();
+            alert('Something went wrong');
+            $scope.content = "Something went wrong";
+        });
+    }
+    $scope.getFeedbackList();
 //     $scope.getIsolateReport = function (hid) {
 
 //         showLoad();

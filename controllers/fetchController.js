@@ -756,6 +756,23 @@ module.exports.getGalleryList = function (req, res) {
         }
     });
 }
+
+module.exports.getFeedbackList = function (req, res) {
+
+    connection.query('EXEC C_getFeedbackList', function (error, results, fields) {
+        {
+            {
+                res.json({
+                    status: 'true',
+                    data: results['recordset']
+                });
+            }
+
+
+            //res.send(JSON.stringify(results));
+        }
+    });
+}
 module.exports.getStudentDetailById = function (req, res) {
 
     connection.query('EXEC getStudentDetailById(' + req.params.sid + ');', function (error, results, fields) {

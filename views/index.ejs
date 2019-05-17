@@ -407,70 +407,22 @@
 			</div>
 		</div>
 		<div class="agileinfo-gallery-row">
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids" ng-repeat="g in gdata.data">
+			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids" ng-repeat="g in gData.data">
 				<a href="{{g.img_url}}" class="imghvr-hinge-right figure">
-					<img src="{{g.img_url}}" alt="" title="Cosy Couches Image"/>
+					<img src="{{g.img_url}}" style="height: 20em; width: 30em;" alt="" title="{{g.title}}-{{g.comments}}"/>
 					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					    <p>For Good Looks</p>
+					<h4>{{g.title}}</h4>
+					    <p>{{g.comments}}</p>
 					</div>
 				</a>
 			</div>
 			
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img7.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img7.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					   <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img8.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img8.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					   <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img1.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img1.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					   <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img2.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img2.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					  <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img3.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img3.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					    <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-3 col-sm-3 col-xs-6 w3gallery-grids">
-				<a href="dist/web_img/img4.jpg" class="imghvr-hinge-right figure">
-					<img src="dist/web_img/img4.jpg" alt="" title="Cosy Couches Image"/>
-					<div class="agile-figcaption">
-					<h4>Cosy Couches</h4>
-					   <p>For Good Looks</p>
-					</div>
-				</a>
-			</div>
+		
+		
+			
+		
+		
+			
 			<div class="clearfix"> </div>
 
 		</div>
@@ -486,134 +438,42 @@
 					<h3>Our Feedback</h3>
 				</div>
 				<div class="agileits-title-right">
-					<p class="para two">Lorem ipsum dolor sit amet  consectetur adipiscing elit.</p>
+					<p class="para two">Thank you for valuable feedback. It's our pleasure got opportunty to work with you. </p>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="agileits-feedback-grids">
-				<div id="owl-demo" class="owl-carousel owl-theme">
-					<div class="item">
-						<div class="icon-w3l">
+			
+				<div id="owl-demo"  class="carousel slide  fullwidth"  data-ride="carousel" data-interval="2000">
+				
+				<div class="carousel-inner col-lg-12 fullwidth"  role="listitem" >
+
+					<div class="item"  data-ng-class="{active : $first}" data-ng-repeat="f in feedData.data">
+							<div class="carousel-item active">
+						<div class="icon-w3l" >
 							<i class="fa fa-quote-left" aria-hidden="true"></i>
 						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
+						<div class="feedback-info" >
+							<div class="feedback-top" >
+								<p> {{f.feedback_comment}} </p>
 							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t1.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Mary Jane</h5>
-									<p>Vestibulum</p>
+							<div class="feedback-grids" >
+								
+								<div class="feedback-img-info" >
+									<h5>{{f.customer_name}}</h5>
+									<p>{{f.customer_address}}</p>
 								</div>
 								<div class="clearfix"> </div>
 							</div>
 						</div>
+						
+							</div></div>
 					</div>
-					<div class="item">
-						<div class="icon-w3l">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t2.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Peter guptill</h5>
-									<p>Vestibulum</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="icon-w3l">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t3.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Steven Wilson</h5>
-									<p>Vestibulum</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="icon-w3l">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t1.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Mary Jane</h5>
-									<p>Vestibulum</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="icon-w3l">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t3.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Peter guptill</h5>
-									<p>Vestibulum</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="icon-w3l">
-							<i class="fa fa-quote-left" aria-hidden="true"></i>
-						</div>
-						<div class="feedback-info">
-							<div class="feedback-top">
-								<p> Sed semper leo metus, a lacinia eros semper at. Etiam sodales orci sit amet vehicula pellentesque. </p>
-							</div>
-							<div class="feedback-grids">
-								<div class="feedback-img">
-									<img src="dist/web_img/t4.jpg" alt="" />
-								</div>
-								<div class="feedback-img-info">
-									<h5>Steven Wilson</h5>
-									<p>Vestibulum</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-						</div>
-					</div>
+					
 				</div>
-			</div>
+					
+					
+				</div>
+			
 		</div>
 	</div>
 </div>
