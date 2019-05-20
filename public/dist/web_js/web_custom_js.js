@@ -1,3 +1,4 @@
+document.body.style.zoom="90%";
 var app = angular.module('susApp', []);
 app.controller('MBCtrl', function ($scope, $http) {
     
